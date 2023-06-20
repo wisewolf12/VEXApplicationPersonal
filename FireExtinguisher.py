@@ -9,7 +9,8 @@ car = Robot(left=(4, 14), right=(17,18))
 castorWheel = Motor(18)
 eyes.when_activated = car.backward(speed=0.5)
 eyes.when_deactivated = car.stop()
-
+water_pump = Motor(forward=19, backward=16)
+    
 class RoboCar():
     def spin(self):
         car.right(0.25)
@@ -30,10 +31,14 @@ class RoboCar():
             car.left(pos.distance)
         elif pos.right:
             car.right(pos.distance)
-    def SprayFire(self):
-        water_pump.on()
-        sleep(30)
-        water_pump.off()
+    def control_water_pump(direction, duration):
+        if direction == "forward":
+            water_pump.forward()
+        elif direction == "backward":
+            water_pump.backward()
+
+            sleep(duration)
+            water_pump.stop()
 
 water_pump = OutputDevice(18)
 
