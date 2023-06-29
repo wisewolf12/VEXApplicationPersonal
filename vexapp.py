@@ -126,7 +126,7 @@ class CarControl():
                 print('after get angle')
                 cc.move_to_fire(angle)
                 print('after movement')
-
+                cc.extinguishfire()
                 print('after extinguished')
                 #print('water pump'+ water_pump.is_active)
 #                 cv2.imshow('Live footage', frame)        
